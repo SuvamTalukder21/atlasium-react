@@ -6,14 +6,15 @@ import {
 	Geography,
 	Graticule,
 	Sphere,
-} from "react-simple-maps";
+} from "@vnedyalk0v/react19-simple-maps";
 import { getCountryByDensity } from "../../apis/postApi";
 import { Loader } from "./Loader";
 import { useNavigate } from "react-router-dom";
 
 export const Globe = () => {
 	const geoUrl =
-		"https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+	// "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+	"https://unpkg.com/world-atlas@2/countries-110m.json";
 	const [tooltip, setTooltip] = useState("");
 	const [densityData, setDensity] = useState({});
 	const [isPending, startTransition] = useTransition();
