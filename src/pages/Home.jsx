@@ -27,9 +27,9 @@ export const Home = () => {
         });
     }, []);
 
-    if (isPending) {
-        return <Loader />;
-    }
+    // if (isPending) {
+    //     return <Loader />;
+    // }
 
     return (
         <main>
@@ -38,20 +38,23 @@ export const Home = () => {
                 <h2 className="container-title">
                     Here are the interesting facts <br /> we are proud of:
                 </h2>
-                <div className="gradient-cards">
-                    {countries.map((country) => {
-                        return (
-                            <div className="card" key={country.ccn3}>
-                                <div className="container-card bg-blue-box">
-                                    <p className="card-title">{country.name.common}</p>
-                                    <p><span className="card-description">Capital:</span> {country.capital ? country.capital[0] : "N/A"}</p>
-                                    <p><span className="card-description">Population:</span> {country.population.toLocaleString()}</p>
-                                    <p><span className="card-description">Interesting Facts:</span> {country.interestingFacts ? country.interestingFacts.geography : "No facts available."}</p>
+                {isPending ? 
+                    <Loader /> :
+                    <div className="gradient-cards">
+                        {countries.map((country) => {
+                            return (
+                                <div className="card" key={country.ccn3}>
+                                    <div className="container-card bg-blue-box">
+                                        <p className="card-title">{country.name.common}</p>
+                                        <p><span className="card-description">Capital:</span> {country.capital ? country.capital[0] : "N/A"}</p>
+                                        <p><span className="card-description">Population:</span> {country.population.toLocaleString()}</p>
+                                        <p><span className="card-description">Interesting Facts:</span> {country.interestingFacts ? country.interestingFacts.geography : "No facts available."}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-                </div>
+                            );
+                        })}
+                    </div>
+                }
             </section>
         </main>
     );
